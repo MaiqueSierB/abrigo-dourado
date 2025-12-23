@@ -13,6 +13,9 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        pixel: ['"Press Start 2P"', 'monospace'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -57,6 +60,24 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        // Game-specific colors
+        ice: {
+          DEFAULT: "hsl(var(--ice))",
+          dark: "hsl(var(--ice-dark))",
+        },
+        snow: "hsl(var(--snow))",
+        frost: "hsl(var(--frost))",
+        "cold-warning": "hsl(var(--cold-warning))",
+        danger: "hsl(var(--danger))",
+        success: "hsl(var(--success))",
+        food: "hsl(var(--food))",
+        materials: "hsl(var(--materials))",
+        fuel: "hsl(var(--fuel))",
+        water: "hsl(var(--water))",
+        engineer: "hsl(var(--engineer))",
+        diplomat: "hsl(var(--diplomat))",
+        sentinel: "hsl(var(--sentinel))",
+        botanist: "hsl(var(--botanist))",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -65,25 +86,27 @@ export default {
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+        snowfall: {
+          "0%": { transform: "translateY(-10px) translateX(0)", opacity: "1" },
+          "100%": { transform: "translateY(100vh) translateX(20px)", opacity: "0.3" },
+        },
+        "pulse-glow": {
+          "0%, 100%": { boxShadow: "0 0 5px hsl(var(--ice) / 0.5)" },
+          "50%": { boxShadow: "0 0 20px hsl(var(--ice) / 0.8)" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        snowfall: "snowfall 10s linear infinite",
+        "pulse-glow": "pulse-glow 2s ease-in-out infinite",
       },
     },
   },
